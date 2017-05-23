@@ -37,8 +37,8 @@ np.random.seed(1)
 
 data_count = len(X)
 
-syn0 = np.random.random((3, data_count))
-syn1 = np.random.random((data_count, 1))
+syn0 = 2*np.random.random((3, data_count))-1
+syn1 = 2*np.random.random((data_count, 1))-1
 
 for j in xrange(60000):
     l0 = X
