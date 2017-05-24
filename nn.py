@@ -45,7 +45,7 @@ class Network:
         self.syn1 = syn1
 
     def test(self, X1):
-        L0 = X1
+        L0 = np.array(X1)
         L1 = self.sigmoid(np.dot(L0, self.syn0))
         L2 = self.sigmoid(np.dot(L1, self.syn1))
         print("Output: ", L2)
