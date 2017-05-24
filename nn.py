@@ -17,8 +17,9 @@ class Network:
         np.random.seed(1)
 
         data_count = len(X)
+        layer_size = len(X[0])
 
-        syn0 = 2*np.random.random((3, data_count))-1
+        syn0 = 2*np.random.random((layer_size, data_count))-1
         syn1 = 2*np.random.random((data_count, 1))-1
 
         for j in xrange(60000):
