@@ -16,17 +16,16 @@ class Network:
     def train(self):
         np.random.seed(1)
 
-        data_count = len(X)
-        layer_size = len(X[0])
+        data_count = len(self.X)
 
-        syn0 = 2*np.random.random((layer_size, data_count))-1
+        syn0 = 2*np.random.random((3, data_count))-1
         syn1 = 2*np.random.random((data_count, 1))-1
 
-        for j in xrange(60000):
+        for j in range(60000):
             l0 = self.X
             l1 = self.sigmoid(np.dot(l0, syn0))
             l2 = self.sigmoid(np.dot(l1, syn1))
-            l2_error = y - l2
+            l2_error = self.y - l2
 
             if (j % 10000) == 0:
                 print("Error: "+ str(np.mean(np.abs(l2_error))))
@@ -45,7 +44,7 @@ class Network:
         self.syn1 = syn1
 
     def test(self, X1):
-        L0 = np.array(X1)
+        L0 = X1
         L1 = self.sigmoid(np.dot(L0, self.syn0))
         L2 = self.sigmoid(np.dot(L1, self.syn1))
         print("Output: ", L2)
